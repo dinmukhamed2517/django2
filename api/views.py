@@ -12,9 +12,9 @@ def problem_create(request):
             problem.reported_by = request.user
             problem.save()
             return redirect('problem_list')
-        else:
-            form = ProblemForm()
-        return render(request, 'problem_create.html', {'form': form})
+    else:
+        form = ProblemForm()
+    return render(request, 'problem_create.html', {'form': form})
 
 
 def problem_list(request):
@@ -31,7 +31,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('problem_list')
-        else:
-            form = UserLoginForm()
-        return render(request, 'user_login.html', {'form': form})
+                return redirect('problems/')
+    else:
+        form = UserLoginForm()
+    return render(request, 'user_login.html', {'form': form})

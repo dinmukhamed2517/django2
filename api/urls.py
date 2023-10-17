@@ -19,6 +19,6 @@ from django.urls import path
 from api import views
 urlpatterns = [
     path('problem/create/', views.problem_create),
-    path('problems/', views.problem_list),
-    path('login/', views.user_login),
+    path('problems/', views.problem_list, name = 'problem_list'),
+    path('', views.user_login),
 ]
